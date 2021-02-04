@@ -1,0 +1,9 @@
+.pizza
+.idea
+.bashrc
+*.sqlite3
+*pyc
+__pycache__
+staticfiles
+debug.log
+.ipynb_checkpoints/
