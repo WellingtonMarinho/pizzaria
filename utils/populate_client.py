@@ -8,13 +8,11 @@ import requests
 from cliente.models import *
 from produto.models import Product
 from cliente.models import Endereco, Cliente
-
 from random import choices, randint
-
-fake = Faker(['fr_FR', 'pt_PT', 'it_IT', 'en_US', 'pt_BR'])
 
 
 def criando_cliente(quantidade):
+    fake = Faker(['fr_FR', 'pt_PT', 'it_IT', 'en_US', 'pt_BR'])
     for _ in range(quantidade):
         gerador_cpf = CPF()
         nome = fake.name()
@@ -22,8 +20,8 @@ def criando_cliente(quantidade):
         endereco = Endereco.objects.all()[randint(0, 30)]
         obj = Cliente.objects.create(nome=nome, cpf=cpf, endereco=endereco)
         obj.save()
+    print(f'Objetos criados com sucesso!')
 
-criando_cliente(2)
 
 
 def criando_enderecos(quantidade):
@@ -39,14 +37,16 @@ def criando_enderecos(quantidade):
             r = request.json()
             cep = cep
             rua = r['logradouro']
+            numero = randint(1, 999)
             complemento = r['complemento']
             bairro = r['bairro']
             cidade = r['localidade']
             uf = r['uf']
-            obj = Endereco.objects.create(cep=cep, rua=rua, complemento=complemento,
+            obj = Endereco.objects.create(cep=cep, rua=rua, numero=numero, complemento=complemento,
                                           bairro=bairro, cidade=cidade, uf=uf)
             obj.save()
         else:
             cont += 1
     print(f'A requisição falhou {cont} vezes.')
-# criando_enderecos(22)
+criando_enderecos(40)
+criando_cliente(40)
