@@ -22,7 +22,6 @@ def criando_cliente(quantidade):
     print(f'Objetos criados com sucesso!')
 
 
-
 def criando_enderecos(quantidade):
     ceps = ['04735000', '02443102', '02763085', '05343010', '04550004', '04826410',
             '04826410', '02764080', '04824110', '05873277', '04844220']
@@ -47,5 +46,5 @@ def criando_enderecos(quantidade):
         else:
             cont += 1
     print(f'A requisição falhou {cont} vezes.')
-criando_enderecos(60)
-criando_cliente(60)
+criando_enderecos(10)
+criando_cliente(10)

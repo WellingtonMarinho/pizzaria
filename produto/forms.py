@@ -1,4 +1,6 @@
 from django import forms
+from django.core.exceptions import ValidationError
+
 from .models import Produto
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column, Field
@@ -25,4 +27,7 @@ class ProdutoForm(forms.ModelForm):
 
     def clean_nome(self):
         nome = self.cleaned_data['nome']
-        if nome
+        if nome.replace(' ', '').isalpha():
+            return nome.title()
+        else:
+            raise ValidationError('Campo "nome" deve conter apenas letras.')

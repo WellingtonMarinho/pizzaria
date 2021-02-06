@@ -17,5 +17,10 @@ class ProdutoCreateView(CreateView):
     template_name = 'produto/cria-produto.html'
     success_url = reverse_lazy('cria-produtos') # Define que url será apontada após o save()
 
-    # def get_success_url(self):
-    #     return reverse('cria-produtos')
+
+class ProdutoUpdateView(UpdateView):
+    model = Produto
+    form_class = ProdutoForm
+    template_name = 'produto/cria-produto.html'
+    pk_url_kwarg = 'produto_pk'
+    success_url = reverse_lazy('cria-produtos')
