@@ -16,7 +16,7 @@ class ProdutoForm(forms.ModelForm):
         self.helper.layout = Layout(
             Row(
                 Column('nome', css="form-group col-md-4 mb-0"),
-                Column('tipo', css="form-group col-md-4 mb-0"),
+                Column('categoria', css="form-group col-md-4 mb-0"),
                 Column('preco', css="form-group col-md-4 mb-0"),
                 css_class='form-row'
             ),
