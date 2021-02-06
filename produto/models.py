@@ -14,10 +14,10 @@ from core.mixins import BaseModel
 #     def __str__(self):
 #         return str(self.type)
 
-class Product(BaseModel):
-    name = models.CharField(max_length=255, null=False, blank=False, verbose_name='Nome')
-    type = models.CharField(max_length=255, verbose_name='Tipo')
-    price = models.DecimalField(decimal_places=2, max_digits=8, verbose_name='Preço')
+class Produto(BaseModel):
+    nome = models.CharField(max_length=255, null=False, blank=False, verbose_name='Nome')
+    tipo = models.CharField(max_length=255, verbose_name='Tipo')
+    preco = models.DecimalField(decimal_places=2, max_digits=8, verbose_name='Preço')
 
     def __str__(self):
         return self.name

@@ -6,7 +6,6 @@ from faker import Faker
 from validate_docbr import CPF
 import requests
 from cliente.models import *
-from produto.models import Product
 from cliente.models import Endereco, Cliente
 from random import choices, randint
 
@@ -48,5 +47,5 @@ def criando_enderecos(quantidade):
         else:
             cont += 1
     print(f'A requisição falhou {cont} vezes.')
-criando_enderecos(40)
-criando_cliente(40)
+criando_enderecos(60)
+criando_cliente(60)

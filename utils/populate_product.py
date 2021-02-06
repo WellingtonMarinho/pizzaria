@@ -2,7 +2,7 @@ import os, django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pizzaria.settings')
 django.setup()
 
-from produto.models import Product
+from produto.models import Produto
 from random import random, randint, randrange, choices
 
 
@@ -14,8 +14,8 @@ def criando_produtos(quantidade):
         type = choices(typos)[0]
         price = randint(1, 80)
 
-        obj = Product.objects.create(name=name, type=type, price=price)
+        obj = Produto.objects.create(nome=name, tipo=type, preco=price)
         obj.save()
     print(f'Objetos criados com sucesso!')
 
-criando_produtos(125)
+criando_produtos(250)

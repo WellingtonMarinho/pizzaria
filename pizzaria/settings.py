@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'core',
     'produto',
     'cliente',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'UTC'
 
@@ -117,7 +118,10 @@ USE_L10N = True
 USE_TZ = True
 
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
