@@ -1,18 +1,18 @@
 from django.contrib import admin
-from .models import Produto #, Type
+from .models import Produto, Categoria
 
-# class TypeAdmin(admin.ModelAdmin):
-#     list_display = ('type',)
-#     list_display_links = ('type',)
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('categoria', 'tamanho')
+    list_display_links = ('categoria',)
 
 
 class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'tipo', 'preco')
-    list_display_links = ('nome', 'tipo', 'preco')
-    list_filter = ('tipo', )
-    search_fields = ('nome', 'tipo')
-    list_per_page = 25
+    list_display = ('nome', 'categoria', 'preco')
+    list_display_links = ('nome', 'categoria', 'preco')
+    list_filter = ('categoria', )
+    search_fields = ('nome', 'categoria')
+    list_per_page = 10
     # list_editable = ('name', 'type', 'price', 'is_active', 'uuid',)
 
-# admin.site.register(Type, TypeAdmin)
+admin.site.register(Categoria, CategoriaAdmin)
 admin.site.register(Produto, ProdutoAdmin)
