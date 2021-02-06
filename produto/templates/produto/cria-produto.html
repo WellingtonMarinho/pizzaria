@@ -1,0 +1,21 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cria Produto</title>
+</head>
+<body>
+<h1>Crie Produtos</h1>
+{% block content %}
+    <form method="post" action="">
+        {% csrf_token %}
+        {% crispy form %}
+{% endblock %}
+
+    </form>
+
+</body>
+</html>

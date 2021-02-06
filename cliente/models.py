@@ -2,8 +2,9 @@ from django.db import models
 from core.mixins import BaseModel
 
 class Endereco(models.Model):
-    cep = models.CharField(max_length=8, blank=False, null=False)
-    rua = models.CharField(max_length=255, blank=False, null=False)
+    cep = models.CharField(max_length=8, null=True, blank=True)
+    rua = models.CharField(max_length=255, null=True, blank=True)
+    numero = models.CharField(max_length=6, null=False, blank=False, default='Sem número')
     complemento = models.CharField(max_length=255, null=True, blank=True)
     bairro = models.CharField(max_length=100, null=False, blank=False)
     cidade = models.CharField(max_length=100, null=False, blank=False)
@@ -21,6 +22,10 @@ class Cliente(BaseModel):
     @property
     def rua(self):
         return self.endereco.rua
+
+    @property
+    def numero(self):
+        return self.endereco.numero
 
     @property
     def bairro(self):

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Categorias</title>
+</head>
+<body>
+{% block content %}
+    {% for obj in categoria_list %}
+        {{ obj.categoria }}
+    {% endfor %}
+
+{% endblock%}
+</body>
+</html>
