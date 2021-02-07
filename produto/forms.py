@@ -1,9 +1,8 @@
 from django import forms
 from django.core.exceptions import ValidationError
-
-from .models import Produto, Categoria
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Row, Column, Field
+from crispy_forms.layout import Layout, Submit, Row, Column
+from .models import Produto, Categoria
 
 
 class ProdutoForm(forms.ModelForm):

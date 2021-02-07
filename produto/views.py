@@ -8,7 +8,7 @@ class ProdutoListView(ListView):
     model = Produto
     template_name = 'produto/produtos.html'
     paginate_by = 10
-    ordering = ('-created_at')
+    ordering = '-created_at'
 
 
 class ProdutoCreateView(CreateView):
@@ -42,7 +42,7 @@ class CategoriaListView(ListView):
     model = Categoria
     template_name = 'produto/categorias.html'
     paginate_by = 10
-    ordering = ('-created_at')
+    ordering = '-created_at'
 
 
 class CategoriaCreateView(CreateView):
@@ -64,4 +64,4 @@ class CategoriaDeleteView(DeleteView):
     model = Categoria
     pk_url_kwarg = 'categoria_pk'
     success_url = reverse_lazy('categorias')
-    template_name = 'produto/delete.html'
+    template_name = 'delete.html'
