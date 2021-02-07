@@ -18,8 +18,15 @@ class ClienteCreateView(CreateView):
 
 
 class ClienteUpdateView(UpdateView):
-    pass
+    model = Cliente
+    template_name = ''
+    form_class = ClienteForm
+    success_url = reverse_lazy('clientes')
+    pk_url_kwarg = 'cliente_pk'
 
 
 class ClienteDeleteView(DeleteView):
-    pass
+    model = Cliente
+    pk_url_kwarg = 'cliente_pk'
+    success_url = reverse_lazy('clientes')
+    template_name = 'delete.html'

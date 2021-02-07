@@ -64,4 +64,4 @@ class CategoriaDeleteView(DeleteView):
     model = Categoria
     pk_url_kwarg = 'categoria_pk'
     success_url = reverse_lazy('categorias')
-    template_name = 'produto/delete.html'
+    template_name = 'delete.html'
