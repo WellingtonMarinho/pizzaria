@@ -6,8 +6,12 @@ from .models import Cliente, Endereco
 
 
 class ClienteForm(forms.ModelForm):
-    pass
+    class Meta:
+        model = Cliente
+        fields = '__all__'
 
 
 class EnderecoForm(forms.ModelForm):
-    pass
+    class Meta:
+        model = Endereco
+        fields = '__all__'

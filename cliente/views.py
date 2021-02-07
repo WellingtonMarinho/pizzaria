@@ -19,7 +19,7 @@ class ClienteCreateView(CreateView):
 
 class ClienteUpdateView(UpdateView):
     model = Cliente
-    template_name = ''
+    template_name = 'cliente/cria-cliente.html'
     form_class = ClienteForm
     success_url = reverse_lazy('clientes')
     pk_url_kwarg = 'cliente_pk'
