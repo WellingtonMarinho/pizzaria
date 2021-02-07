@@ -30,3 +30,6 @@ class Cliente(BaseModel):
     @property
     def bairro(self):
         return self.endereco.bairro
+
+    def __str__(self):
+        return self.nome
