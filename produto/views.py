@@ -8,7 +8,7 @@ class ProdutoListView(ListView):
     model = Produto
     template_name = 'produto/produtos.html'
     paginate_by = 10
-    ordering = ('-created_at')
+    ordering = '-created_at'
 
 
 class ProdutoCreateView(CreateView):
@@ -42,7 +42,7 @@ class CategoriaListView(ListView):
     model = Categoria
     template_name = 'produto/categorias.html'
     paginate_by = 10
-    ordering = ('-created_at')
+    ordering = '-created_at'
 
 
 class CategoriaCreateView(CreateView):

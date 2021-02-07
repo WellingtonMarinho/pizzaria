@@ -11,8 +11,8 @@ urlpatterns = [
     # path('<slug>', ProdutoDetailView.as_view(), name='produto'),
 
     path('categorias/', CategoriaListView.as_view(), name='categorias'),
-    path('categoria/edit/<int:categoria_pk>', CategoriaUpdateView.as_view(), name='categoria_edit'),
     path('categoria/crie/', CategoriaCreateView.as_view(), name='categoria_create'),
-    path('categoria/<int:categoria_pk>/delete/', CategoriaDeleteView.as_view(), name='categoria_delete'),
+    path('categoria/edit/<int:categoria_pk>', CategoriaUpdateView.as_view(), name='categoria_edit'),
+    path('categoria/delete//<int:categoria_pk>', CategoriaDeleteView.as_view(), name='categoria_delete'),
 
 ]
