@@ -48,7 +48,7 @@ class CategoriaListView(ListView):
 class CategoriaCreateView(CreateView):
     model = Categoria
     form_class = CategoriaForm
-    template_name = 'produto/cria-categoria.html'
+    template_name = 'forms.html'
     success_url = reverse_lazy('categorias')
 
 
