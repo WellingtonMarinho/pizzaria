@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Cliente, Endereco
+from django.urls import reverse_lazy
 
-# Create your views here.
+
+class ClienteListView(ListView):
+    model = Cliente
+    template_name = 'cliente/cliente-list.html'
+
+
+
+class ClienteCreateView():
+    pass

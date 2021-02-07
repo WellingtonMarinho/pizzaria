@@ -1,5 +1,8 @@
 from django.urls import path
-from . import views
+from .views import ClienteListView, ClienteCreateView
 
 
-urlpatterns = []
+urlpatterns = [
+    path('clientes/', ClienteListView.as_view(), name='clientes'),
+
+]
