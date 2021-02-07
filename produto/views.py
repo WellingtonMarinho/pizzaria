@@ -32,6 +32,13 @@ class ProdutoUpdateView(UpdateView):
     pk_url_kwarg = 'produto_pk'
 
 
+class ProdutoDeleteView(DeleteView):
+    model = Produto
+    pk_url_kwarg = 'produto_pk'
+    success_url = reverse_lazy('categorias')
+    template_name = 'produto/delete.html'
+
+
 class CategoriaListView(ListView):
     model = Categoria
     template_name = 'produto/categorias.html'
@@ -57,16 +64,5 @@ class CategoriaUpdateView(UpdateView):
 class CategoriaDeleteView(DeleteView):
     model = Categoria
     pk_url_kwarg = 'categoria_pk'
-    success_url = 'categorias'
-    template_name = 'produto/cria-categoria.html'
-
-#
-# class CategoriaDeleteView(RedirectView):
-#
-#     pk_url_kwarg = 'categoria_pk'
-#
-#     def get_reditect_url(self, *args, **kwargs):
-#         categoria = Categoria.objects.get(pk=kwargs['categoria_pk'])
-#         categoria.delete()
-#         self.url = reverse_lazy('categorias')
-#         return super(CategoriaDeleteView, self).get_redirect_url(*args, **kwargs)
+    success_url = reverse_lazy('categorias')
+    template_name = 'produto/delete.html'

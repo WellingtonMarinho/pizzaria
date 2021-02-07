@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">La Nona</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Entrar</a>
+            </li>
+        </ul>
+
+    </header>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+
+                <div class="position-sticky pt-3">
+
+                    <ul class="nav flex-column">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                            <span data-feather="home"></span>
+                            Pedidos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Produtos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                            <span data-feather="home"></span>
+                            Combos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Clientes
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            <span data-feather="layers"></span>
+                            Estoque
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>Em Aberto</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle"></span>
+                        </a>
+                    </h6>
+
+                    <ul class="nav flex-column mb-2">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Mesas
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Comandas
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Consultas
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Delivery
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+            <div class="container marketing">
+
+                <br>
+
+                <div class="container">
+                    <div class="row">
+                        <input class="form-control form-control-dark w-50 search-button" type="text" placeholder="Busca" aria-label="Search">
+                    </div>
+                </div>
+
+                <br>
+
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-lg-3 col-group-itens-container">
+                            <div class="container">
+                                <div>
+                                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"
+                                    ><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+                                    </svg>
+                                </div>
+                                <br>
+                                <h2>Pizzas</h2>
+                                <!-- <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p> -->
+                                <p><a class="btn btn-secondary" href="#" role="button">Ver todos &raquo;</a></p>
+                            </div>
+                        </div><!-- /.col-lg-4 -->
+
+                        <div class="col-lg-3 col-group-itens-container">
+                            <div>
+                                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder:  140x140" preserveAspectRatio="xMidYMid slice"    focusable="false"><title>Placeholder</title><rect width="100%"     height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".  3em">140x140</text></svg>
+                            </div>
+                            <br>
+                            <h2>Esfirras</h2>
+                            <p><a class="btn btn-secondary" href="#" role="button">Ver Todos &raquo; </a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-3 col-group-itens-container">
+                            <div>
+                                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder:  140x140" preserveAspectRatio="xMidYMid slice"    focusable="false"><title>Placeholder</title><rect width="100%"     height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".  3em">140x140</text></svg>
+                            </div>
+                            <br>
+                            <h2>Lanches</h2>
+                            <p><a class="btn btn-secondary" href="#" role="button">Ver Todos &raquo; </a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-3 col-group-itens-container">
+                            <div>
+                                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder:  140x140" preserveAspectRatio="xMidYMid slice"    focusable="false"><title>Placeholder</title><rect width="100%"     height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".  3em">140x140</text></svg>
+                            </div>
+                            <br>
+                            <h2>Combos</h2>
+                            <p><a class="btn btn-secondary" href="#" role="button">Ver Todos &raquo; </a></p>
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-lg-3 col-group-itens-container">
+                            <div>
+                                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder:  140x140" preserveAspectRatio="xMidYMid slice"    focusable="false"><title>Placeholder</title><rect width="100%"     height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".  3em">140x140</text></svg>
+                            </div>
+                            <br>
+                            <h2>Porções</h2>
+                            <p><a class="btn btn-secondary" href="#" role="button">Ver Todos &raquo; </a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-3 col-group-itens-container">
+                            <div>
+                                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder:  140x140" preserveAspectRatio="xMidYMid slice"    focusable="false"><title>Placeholder</title><rect width="100%"     height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".  3em">140x140</text></svg>
+                            </div>
+                            <br>
+                            <h2>Pasteis</h2>
+                            <p><a class="btn btn-secondary" href="#" role="button">Ver Todos &raquo; </a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-3 col-group-itens-container">
+                            <div>
+                                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder:  140x140" preserveAspectRatio="xMidYMid slice"    focusable="false"><title>Placeholder</title><rect width="100%"     height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".  3em">140x140</text></svg>
+                            </div>
+                            <br>
+                            <h2>Sobremesas</h2>
+                            <p><a class="btn btn-secondary" href="#" role="button">Ver Todos &raquo; </a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div class="col-lg-3 col-group-itens-container">
+                            <div>
+                                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder:  140x140" preserveAspectRatio="xMidYMid slice"    focusable="false"><title>Placeholder</title><rect width="100%"     height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".  3em">140x140</text></svg>
+                            </div>
+                            <br>
+                            <h2>Bebidas</h2>
+                            <p><a class="btn btn-secondary" href="#" role="button">Ver Todos &raquo; </a></p>
+                        </div><!-- /.col-lg-4 -->
+                            <!--
+                            <li>Porções</li>
+                            <li>Pasteis</li>
+                            <li></li>
+                            <li></li>
+                        </ul>  -->
+                    </div>
+
+                </div>
+
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
