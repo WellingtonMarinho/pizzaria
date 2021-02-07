@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% for cliente in cliente_list %}
+        {{ cliente.nome }}
+    {%%}
+
+{% endblock%}
