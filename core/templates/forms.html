@@ -8,6 +8,9 @@
     <form method="post" action="">
         {% csrf_token %}
         {% crispy form %}
+        {% block form_inline %} {% endblock%}
+        <br>
+        <br>
         <div class="button">
             <button type="submit">Salvar</button>
         </div>
