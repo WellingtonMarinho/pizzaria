@@ -6,7 +6,6 @@ from faker import Faker
 from validate_docbr import CPF
 import requests
 from cliente.models import *
-from produto.models import Product
 from cliente.models import Endereco, Cliente
 from random import choices, randint
 
@@ -17,11 +16,10 @@ def criando_cliente(quantidade):
         gerador_cpf = CPF()
         nome = fake.name()
         cpf = gerador_cpf.generate()
-        endereco = Endereco.objects.all()[randint(0, 30)]
+        endereco = Endereco.objects.all()[randint(0, Endereco.objects.count())]
         obj = Cliente.objects.create(nome=nome, cpf=cpf, endereco=endereco)
         obj.save()
     print(f'Objetos criados com sucesso!')
-
 
 
 def criando_enderecos(quantidade):
@@ -48,5 +46,5 @@ def criando_enderecos(quantidade):
         else:
             cont += 1
     print(f'A requisição falhou {cont} vezes.')
-criando_enderecos(40)
-criando_cliente(40)
+criando_enderecos(10)
+criando_cliente(30)
