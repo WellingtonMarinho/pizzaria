@@ -42,7 +42,22 @@ class CategoriaListView(ListView):
     model = Categoria
     template_name = 'produto/categorias.html'
     paginate_by = 10
-    ordering = '-created_at'
+    # ordering = '-created_at'
+    context_object_name = 'categorias'
+
+    def get_queryset(self, **kwargs):
+        queryset = Categoria.objects.all().order_by('-created_at')
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoriaListView, self).get_context_data(**kwargs)
+        context['page_title'] = 'Categorias'
+        context['list_title'] = 'Lisda de Categorias'
+        context['editable'] = False
+        context['back_line'] = reverse_lazy('index')
+        context['back_button'] = 'Voltar'
+        context['home'] = 'Index'
+        return context
 
 
 class CategoriaCreateView(CreateView):

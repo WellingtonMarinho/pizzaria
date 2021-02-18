@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from .models import Cliente, Endereco
 from .forms import ClienteForm, EnderecoForm
 
+
 class ClienteListView(ListView):
     model = Cliente
     template_name = 'cliente/cliente-list.html'
