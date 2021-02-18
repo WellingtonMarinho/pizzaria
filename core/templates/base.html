@@ -12,10 +12,8 @@
 
     <!-- CSS puro -->
 
-    <link rel="stylesheet" href="{% static 'css/container/col-group-itens-container.css' %}">
-    <link rel="stylesheet" href="{% static 'css/container/main-products.css' %}">
-    <link rel="stylesheet" href="{% static 'css/container/menu-sidebar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/components/search-button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/container/col_group_itens_container.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/search_button.css' %}">
 
     <!-- Bootstrap core CSS -->
 
@@ -76,14 +74,7 @@
             {% block content %}
             {% endblock %}
         
-            <footer class="blog-footer">
-                    <div class="container">
-                        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-                        <p>
-                        <a href="#">Back to top</a>
-                        </p>
-                    </div>
-            </footer>
+            {% include 'parcials/_main_footer.html' %}
             
         </div> 
 
