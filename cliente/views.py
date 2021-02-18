@@ -6,7 +6,7 @@ from .forms import ClienteForm, EnderecoForm
 
 class ClienteListView(ListView):
     model = Cliente
-    template_name = 'cliente/cliente-list.html'
+    template_name = 'cliente/clientes.html'
     paginate_by = 10
     context_object_name = 'clientes' # altera o nome da váriavel de contexto que por default é 'object'_list
 
