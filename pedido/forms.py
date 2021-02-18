@@ -8,7 +8,8 @@ from django.core.exceptions import ValidationError
 class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido
-        fields = '__all__'
+        fields = ('cliente', 'produto', 'quantidade')
+        exclude = ['price']
 
     # def __init__(self, *args, **kwargs):
-    #     self.helper =
+    #     self.helper = None
