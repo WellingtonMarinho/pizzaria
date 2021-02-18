@@ -3,8 +3,9 @@ from .views import ClienteListView, ClienteCreateView, ClienteUpdateView, Client
 
 
 urlpatterns = [
-    path('clientes/', ClienteListView, name='clientes'),
-    path('cliente/crie/', ClienteCreateView, name='cliente-cria'),
-    path('cliente/edit/<int:cliente_pk>', ClienteUpdateView, name='cliente-edit'),
-    path('cliente/delete/<int:cliente_pk>', ClienteDeleteView, name='cliente-delete'),
+    path('clientes/', ClienteListView.as_view(), name='clientes'),
+    path('cliente/crie/', ClienteCreateView.as_view(), name='cliente-cria'),
+    path('cliente/edit/<int:cliente_pk>', ClienteUpdateView.as_view(), name='cliente-edit'),
+    path('cliente/delete/<int:cliente_pk>', ClienteDeleteView.as_view(), name='cliente-delete'),
+
 ]

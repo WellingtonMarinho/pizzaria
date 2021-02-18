@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from produto.models import Produto, Categoria
 
+
 class IndexView(ListView):
     model = Categoria
     template_name = 'index.html'

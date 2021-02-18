@@ -89,14 +89,3 @@ class CategoriaDeleteView(DeleteView):
     pk_url_kwarg = 'categoria_pk'
     success_url = reverse_lazy('categorias')
     template_name = 'delete.html'
-
-
-ProdutoListView = ProdutoListView.as_view()
-ProdutoCreateView = ProdutoCreateView.as_view()
-ProdutoUpdateView = ProdutoUpdateView.as_view()
-ProdutoDeleteView = ProdutoDeleteView.as_view()
-
-CategoriaListView = CategoriaListView.as_view()
-CategoriaCreateView = CategoriaCreateView.as_view()
-CategoriaUpdateView = CategoriaUpdateView.as_view()
-CategoriaDeleteView = CategoriaDeleteView.as_view()
