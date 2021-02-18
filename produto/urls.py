@@ -4,14 +4,15 @@ from .views import ProdutoListView, ProdutoCreateView, ProdutoUpdateView, Produt
 
 
 urlpatterns = [
-    path('produtos/', ProdutoListView.as_view(), name='lista-produtos'),
-    path('produto/crie/', ProdutoCreateView.as_view(), name='produtos-create'),
-    path('produto/edit/<int:produto_pk>', ProdutoUpdateView.as_view(), name='produtos-edit'),
-    path('produto/delete/<int:produto_pk>', ProdutoDeleteView.as_view(), name='produtos-delete'),
+    path('produtos/', ProdutoListView, name='lista-produtos'),
+    path('produto/crie/', ProdutoCreateView, name='produtos-create'),
+    path('produto/edit/<int:produto_pk>', ProdutoUpdateView, name='produtos-edit'),
+    path('produto/delete/<int:produto_pk>', ProdutoDeleteView, name='produtos-delete'),
+    path('produtos/combos/', ProdutoListView, name='lista-combos'),
     # path('<slug>', ProdutoDetailView.as_view(), name='produto'),
 
-    path('categorias/', CategoriaListView.as_view(), name='categorias'),
-    path('categoria/crie/', CategoriaCreateView.as_view(), name='categoria-create'),
-    path('categoria/edit/<int:categoria_pk>', CategoriaUpdateView.as_view(), name='categoria-edit'),
-    path('categoria/delete/<int:categoria_pk>', CategoriaDeleteView.as_view(), name='categoria-delete'),
+    path('categorias/', CategoriaListView, name='categorias'),
+    path('categoria/crie/', CategoriaCreateView, name='categoria-create'),
+    path('categoria/edit/<int:categoria_pk>', CategoriaUpdateView, name='categoria-edit'),
+    path('categoria/delete/<int:categoria_pk>', CategoriaDeleteView, name='categoria-delete'),
 ]

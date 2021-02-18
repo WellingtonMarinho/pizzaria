@@ -6,7 +6,7 @@ from .forms import ProdutoForm, CategoriaForm
 
 class ProdutoListView(ListView):
     model = Produto
-    template_name = 'produto/produtos.html'
+    template_name = 'list.html'
     paginate_by = 10
     # ordering = '-created_at'
     context_object_name = 'obj_list'
@@ -49,7 +49,7 @@ class ProdutoDeleteView(DeleteView):
 
 class CategoriaListView(ListView):
     model = Categoria
-    template_name = 'produto/categorias.html'
+    template_name = 'list.html'
     paginate_by = 10
     # ordering = '-created_at'
     context_object_name = 'obj_list'
@@ -89,3 +89,14 @@ class CategoriaDeleteView(DeleteView):
     pk_url_kwarg = 'categoria_pk'
     success_url = reverse_lazy('categorias')
     template_name = 'delete.html'
+
+
+ProdutoListView = ProdutoListView.as_view()
+ProdutoCreateView = ProdutoCreateView.as_view()
+ProdutoUpdateView = ProdutoUpdateView.as_view()
+ProdutoDeleteView = ProdutoDeleteView.as_view()
+
+CategoriaListView = CategoriaListView.as_view()
+CategoriaCreateView = CategoriaCreateView.as_view()
+CategoriaUpdateView = CategoriaUpdateView.as_view()
+CategoriaDeleteView = CategoriaDeleteView.as_view()

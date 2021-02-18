@@ -6,7 +6,7 @@ from .forms import ClienteForm, EnderecoForm
 
 class ClienteListView(ListView):
     model = Cliente
-    template_name = 'cliente/clientes.html'
+    template_name = 'list.html'
     paginate_by = 10
     context_object_name = 'obj_list' # altera o nome da váriavel de contexto que por default é 'object'_list
 
@@ -47,3 +47,9 @@ class ClienteDeleteView(DeleteView):
     pk_url_kwarg = 'cliente_pk'
     success_url = reverse_lazy('clientes')
     template_name = 'delete.html'
+
+
+ClienteListView = ClienteListView.as_view()
+ClienteCreateView = ClienteCreateView.as_view()
+ClienteUpdateView = ClienteUpdateView.as_view()
+ClienteDeleteView = ClienteDeleteView.as_view()
