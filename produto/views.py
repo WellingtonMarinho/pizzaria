@@ -6,13 +6,13 @@ from .forms import ProdutoForm, CategoriaForm
 
 class ProdutoListView(ListView):
     model = Produto
-    template_name = 'produto/produtos.html'
+    template_name = 'list.html'
     paginate_by = 10
     # ordering = '-created_at'
-    context_object_name = 'produtos'
+    context_object_name = 'obj_list'
 
     def get_queryset(self, **kwargs):
-        queryset = Produto.objects.all().order_by('-created_at')
+        queryset = Produto.objects.all().order_by('created_at')
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -49,10 +49,10 @@ class ProdutoDeleteView(DeleteView):
 
 class CategoriaListView(ListView):
     model = Categoria
-    template_name = 'produto/categorias.html'
+    template_name = 'list.html'
     paginate_by = 10
     # ordering = '-created_at'
-    context_object_name = 'categorias'
+    context_object_name = 'obj_list'
 
     def get_queryset(self, **kwargs):
         queryset = Categoria.objects.all().order_by('-created_at')
