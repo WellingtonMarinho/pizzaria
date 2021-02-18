@@ -19,6 +19,7 @@ class ProdutoListView(ListView):
         context = super(ProdutoListView, self).get_context_data(**kwargs)
         return context
 
+
 class ProdutoCreateView(CreateView):
     model = Produto
     form_class = ProdutoForm
