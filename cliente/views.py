@@ -8,7 +8,7 @@ class ClienteListView(ListView):
     model = Cliente
     template_name = 'cliente/clientes.html'
     paginate_by = 10
-    context_object_name = 'clientes' # altera o nome da váriavel de contexto que por default é 'object'_list
+    context_object_name = 'obj_list' # altera o nome da váriavel de contexto que por default é 'object'_list
 
     # É necessário rescrever esses dois métodos para aplicar
     # Variáveis de contexto, como título, nome específico para tags e etc.

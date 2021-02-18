@@ -81,7 +81,7 @@
         <div class="container-fluid">
 
           <div class="row">
-            
+
             <div class="col-md-12 col-lg-4 col-xl-3">
               <div class="card">
                 <div class="container">
@@ -95,7 +95,10 @@
             <div class="col-12 col-md-8 col-lg-9">
               <br>
               <div class="row">
-
+                {% block search %}
+                {% endblock%}
+                <br>
+                <br>
                 {% block content %}
                 {% endblock %}
               </div>
@@ -105,10 +108,10 @@
 
         </div>
 
-      </div>        
-      
+      </div>
+
       {% include 'parcials/_main_footer.html' %}
-      
+
     </div>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
