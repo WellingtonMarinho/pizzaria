@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Produto, Categoria
 
+
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id', 'categoria', 'tamanho')
     list_display_links = ('categoria',)

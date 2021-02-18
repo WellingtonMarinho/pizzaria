@@ -23,7 +23,7 @@ class ProdutoListView(ListView):
 class ProdutoCreateView(CreateView):
     model = Produto
     form_class = ProdutoForm
-    template_name = 'produto/cria-produto.html'
+    template_name = 'forms.html'
     success_url = reverse_lazy('lista-produtos') # Define que url será apontada após o save()
 
 
@@ -34,9 +34,9 @@ class ProdutoCreateView(CreateView):
 
 class ProdutoUpdateView(UpdateView):
     model = Produto
-    template_name = 'produto/cria-produto.html'
+    template_name = 'forms.html'
     form_class = ProdutoForm
-    success_url = 'lista-produtos'
+    success_url = reverse_lazy('lista-produtos')
     pk_url_kwarg = 'produto_pk'
 
 
@@ -78,7 +78,7 @@ class CategoriaCreateView(CreateView):
 
 class CategoriaUpdateView(UpdateView):
     model = Categoria
-    template_name = 'produto/cria-categoria.html'
+    template_name = 'forms.html'
     form_class = CategoriaForm
     success_url = reverse_lazy('categorias')
     pk_url_kwarg = 'categoria_pk'
