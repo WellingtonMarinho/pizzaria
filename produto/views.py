@@ -9,7 +9,7 @@ class ProdutoListView(ListView):
     template_name = 'produto/produtos.html'
     paginate_by = 10
     # ordering = '-created_at'
-    context_object_name = 'Produtos'
+    context_object_name = 'produtos'
 
     def get_queryset(self, **kwargs):
         queryset = Produto.objects.all().order_by('-created_at')
@@ -17,7 +17,7 @@ class ProdutoListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ProdutoListView, self).get_context_data(**kwargs)
-
+        return context
 
 class ProdutoCreateView(CreateView):
     model = Produto
