@@ -13,6 +13,7 @@
     <!-- CSS puro -->
 
     <link rel="stylesheet" href="{% static 'css/container/col-group-itens-container.css' %}">
+    <link rel="stylesheet" href="{% static 'css/container/main-products.css' %}">
     <link rel="stylesheet" href="{% static 'css/container/menu-sidebar.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/search-button.css' %}">
 
@@ -24,6 +25,7 @@
     <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/theme/assets/css/dist/css/bootstrap.css:40">
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="https://img.icons8.com/emoji/48/000000/pizza-emoji.png" type="image/x-icon">
@@ -51,7 +53,7 @@
 
   </head>
 
-  <body cz-shortcut-listen="true">
+  <body class="main-products" cz-shortcut-listen="true">
 
     <div class="container-fluid">
 
@@ -69,81 +71,11 @@
                 </ul>
             </header>
 
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="container">
-                    <div class="position-sticky pt-3">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">
-                                <span data-feather="home"></span>
-                                Pedidos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                <span data-feather="shopping-cart"></span>
-                                Produtos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">
-                                <span data-feather="home"></span>
-                                Combos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                <span data-feather="users"></span>
-                                Clientes
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                                Estoque
-                                </a>
-                            </li>
-                        </ul>
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                            <span>Em Aberto</span>
-                            <a class="link-secondary" href="#" aria-label="Add a new report">
-                                <span data-feather="plus-circle"></span>
-                            </a>
-                        </h6>
-                        <ul class="nav flex-column mb-2">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Mesas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Comandas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Consultas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Delivery
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-                
-            
-                {% block content %}
-                {% endblock %}      
+            {% include 'parcials/_menu_sidebar.html' %}
 
+            {% block content %}
+            {% endblock %}
+        
             <footer class="blog-footer">
                     <div class="container">
                         <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
