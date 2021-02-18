@@ -6,7 +6,6 @@ from core.mixins import BaseModel
 from produto.models import Produto
 
 
-
 class Pedido(BaseModel):
     cliente = models.ForeignKey(Cliente, on_delete=models.DO_NOTHING)
     produto = models.ForeignKey(Produto, on_delete=models.DO_NOTHING)
