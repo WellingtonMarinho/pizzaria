@@ -21,13 +21,3 @@ class Pedido(BaseModel):
     #     self.price = value
     #     super(Pedido, self).save(*args, **kwargs)
 
-    def __str__(self):
-        return f'-- {self.cliente}'
-
-    def save(self, *args, **kwargs):
-        list_value = [item for item in self.produto.preco]
-        value = sum(list_value)
-        self.price = value
-        super(Pedido, self).save(*args, **kwargs)
-
-    # def get_absolut_reverse(self):
