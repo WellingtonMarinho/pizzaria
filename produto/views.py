@@ -24,7 +24,7 @@ class ProdutoCreateView(CreateView):
     model = Produto
     form_class = ProdutoForm
     template_name = 'forms.html'
-    success_url = reverse_lazy('produtos-list') # Define que url será apontada após o save()
+    success_url = reverse_lazy('produto-list') # Define que url será apontada após o save()
 
 
 class ProdutoDetailView(DetailView):
@@ -37,14 +37,14 @@ class ProdutoUpdateView(UpdateView):
     model = Produto
     template_name = 'forms.html'
     form_class = ProdutoForm
-    success_url = reverse_lazy('produtos-list')
+    success_url = reverse_lazy('produto-list')
     pk_url_kwarg = 'obj_pk'
 
 
 class ProdutoDeleteView(DeleteView):
     model = Produto
     pk_url_kwarg = 'obj_pk'
-    success_url = reverse_lazy('categoria-list')
+    success_url = reverse_lazy('produto-list')
     template_name = 'delete.html'
 
 
