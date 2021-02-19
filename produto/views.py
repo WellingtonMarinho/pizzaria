@@ -69,17 +69,17 @@ class CategoriaListView(ListView):
         return context
 
 
+class CategoriaDetailView(DetailView):
+    model = Categoria
+    template_name = 'detail.html'
+    pk_url_kwarg = 'obj_pk'
+
+
 class CategoriaCreateView(CreateView):
     model = Categoria
     form_class = CategoriaForm
     template_name = 'forms.html'
     success_url = reverse_lazy('categorias')
-
-
-class CategoriaDetailView(DetailView):
-    model = Categoria
-    template_name = 'detail.html'
-    pk_url_kwarg = 'obj_pk'
 
 
 class CategoriaUpdateView(UpdateView):
