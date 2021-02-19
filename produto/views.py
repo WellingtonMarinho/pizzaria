@@ -43,9 +43,9 @@ class ProdutoUpdateView(UpdateView):
 
 class ProdutoDeleteView(DeleteView):
     model = Produto
-    pk_url_kwarg = 'produto_pk'
+    pk_url_kwarg = 'obj_pk'
     success_url = reverse_lazy('categorias')
-    template_name = 'produto/delete.html'
+    template_name = 'delete.html'
 
 
 class CategoriaListView(ListView):
@@ -87,11 +87,11 @@ class CategoriaUpdateView(UpdateView):
     template_name = 'forms.html'
     form_class = CategoriaForm
     success_url = reverse_lazy('categorias')
-    pk_url_kwarg = 'categoria_pk'
+    pk_url_kwarg = 'obj_pk'
 
 
 class CategoriaDeleteView(DeleteView):
     model = Categoria
-    pk_url_kwarg = 'categoria_pk'
+    pk_url_kwarg = 'obj_pk'
     success_url = reverse_lazy('categorias')
     template_name = 'delete.html'
