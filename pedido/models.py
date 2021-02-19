@@ -20,3 +20,16 @@ class Pedido(BaseModel):
     #     value = sum(list_value)
     #     self.price = value
     #     super(Pedido, self).save(*args, **kwargs)
+
+
+class ItemPedido(models.Model):
+    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    produto = models.ForeignKey(Produto, on_delete=models.DO_NOTHING)
+    quantidade = models.PositiveIntegerField()
+
+
+    @property
+    def preco(self):
+        return self.produto.preco
+
+
