@@ -27,10 +27,11 @@ class ProdutoCreateView(CreateView):
     success_url = reverse_lazy('lista-produtos') # Define que url será apontada após o save()
 
 
-# class ProdutoDetailView(DetailView):
-#     model = Produto
-#     template_name = 'produto/cria-produto.html'
-#     pk_url_kwarg = 'slug'
+class ProdutoDetailView(DetailView):
+    model = Produto
+    template_name = 'detail.html'
+    pk_url_kwarg = 'obj_pk'
+
 
 class ProdutoUpdateView(UpdateView):
     model = Produto
@@ -51,7 +52,6 @@ class CategoriaListView(ListView):
     model = Categoria
     template_name = 'list.html'
     paginate_by = 10
-    # ordering = '-created_at'
     context_object_name = 'obj_list'
 
     def get_queryset(self, **kwargs):
@@ -61,7 +61,7 @@ class CategoriaListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(CategoriaListView, self).get_context_data(**kwargs)
         context['page_title'] = 'Categorias'
-        context['list_title'] = 'Lisda de Categorias'
+        context['list_title'] = 'Lista de Categorias'
         context['editable'] = False
         context['back_line'] = reverse_lazy('index')
         context['back_button'] = 'Voltar'
@@ -74,6 +74,12 @@ class CategoriaCreateView(CreateView):
     form_class = CategoriaForm
     template_name = 'forms.html'
     success_url = reverse_lazy('categorias')
+
+
+class CategoriaDetailView(DetailView):
+    model = Categoria
+    template_name = 'detail.html'
+    pk_url_kwarg = 'obj_pk'
 
 
 class CategoriaUpdateView(UpdateView):
