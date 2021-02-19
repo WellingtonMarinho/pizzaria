@@ -34,6 +34,12 @@ class ClienteCreateView(CreateView):
     success_url = reverse_lazy('clientes')
 
 
+class ClienteDetailView(DetailView):
+    model = Cliente
+    template_name = 'detail.html'
+    pk_url_kwarg = 'obj_pk'
+
+
 class ClienteUpdateView(UpdateView):
     model = Cliente
     template_name = 'forms.html'
