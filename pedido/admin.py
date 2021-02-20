@@ -8,8 +8,23 @@ class ItemPedidoAdmin(admin.TabularInline):
 
 
 class PedidoAdmin(admin.ModelAdmin):
-    # list_display = ('id', 'cliente')
+    # fieldsets = (
+    #     (None, {
+    #     'fields': (
+    #         'uuid',
+    #         'is_active',
+    #         # 'created_at',
+    #         # 'modified_at',
+    #     )
+    # }),
+    #  ('Pedido', {
+    #      'fields': ('cliente', 'endereco')
+    #  }
+    #
+    #   )
+    #  )
     inlines = [ItemPedidoAdmin]
+    # readonly_fields = ['uuid', 'created_at']
 
 #     list_display = ('id', 'cliente', )
 #     list_display_links = ('cliente',)
