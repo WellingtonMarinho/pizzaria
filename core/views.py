@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
-from django.urls import reverse_lazy, reverse
-from produto.models import Produto, Categoria
+from django.views.generic import ListView
+from django.urls import reverse_lazy
+from produto.models import Categoria
 
 
 class IndexView(ListView):

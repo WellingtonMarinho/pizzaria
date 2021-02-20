@@ -15,7 +15,7 @@ def criando_categorias():
 
         obj = Categoria.objects.create(categoria=categoria, tamanho=tamanho)
         obj.save()
-
+    print('Categorias criadas!')
 
 # criando_categorias()
 
