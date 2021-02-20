@@ -20,11 +20,8 @@ class Pedido(BaseModel):
     def __str__(self):
         return f'Pedido N°: {self.id} - {self.cliente.nome} -- {self.endereco}'
 
-    # def save(self, *args, **kwargs):
-    #     list_value = [item for item in self.produto.preco]
-    #     value = sum(list_value)
-    #     self.price = value
-    #     super(Pedido, self).save(*args, **kwargs)
+    class Meta:
+        ordering = ('-created_at',)
 
 
 class ItemPedido(models.Model):
