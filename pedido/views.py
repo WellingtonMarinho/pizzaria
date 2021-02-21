@@ -14,7 +14,7 @@ def pedido(request):
             'form': form,
             'form_itempedido': form_itempedido,
         }
-        return render(request, 'forms.html', context)
+        return render(request, 'pedido/form_pedido.html', context)
 
 
 
