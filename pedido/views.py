@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from pedido.models import Pedido, ItemPedido
 from pedido.forms import PedidoForm, ItemPedidoForm
@@ -16,6 +16,19 @@ def pedido(request):
         }
         return render(request, 'pedido/form_pedido.html', context)
 
+    elif request.method == "POST":
+        form = PedidoForm(request.POST)
+        form_item_pedido_factory = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm)
+        form_itempedido = form_item_pedido_factory(request.POST)
+        if form.is_valid() and form_itempedido.is_valid():
+            pedido = form.save()
+            form_itempedido.instance = pedido
+            form_itempedido.save()
+            return redirect(reverse('core:index'))
+    else:
+        context = {
+            'form':
+        }
 
 
 
