@@ -21,16 +21,8 @@ class Cliente(BaseModel):
     endereco = models.ForeignKey(Endereco, on_delete=models.DO_NOTHING)
 
     @property
-    def rua(self):
-        return self.endereco.rua
-
-    @property
-    def numero(self):
-        return self.endereco.numero
-
-    @property
-    def bairro(self):
-        return self.endereco.bairro
+    def _endereco(self):
+        return f'Rua: {self.endereco.rua}, N° {self.endereco.numero} - {self.endereco.bairro}'
 
     def __str__(self):
         return self.nome
