@@ -25,11 +25,12 @@ def pedido(request):
             form_itempedido.instance = pedido
             form_itempedido.save()
             return redirect(reverse('core:index'))
-    else:
-        context = {
-            'form':
-        }
-
+        else:
+            context = {
+                'form': form,
+                'form_itempedido': form_itempedido
+            }
+            return render(request, 'pedido/form_pedido.html', context)
 
 
 # class PedidoCreateView(CreateView):
