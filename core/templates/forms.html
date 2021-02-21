@@ -7,8 +7,14 @@
 {% block content %}
     <form method="post" action="">
         {% csrf_token %}
-        {% crispy form %}
-        {% block form_inline %} {% endblock%}
+        {{ form.as_p }}
+
+        {{ form_itempedido.management_form }}
+
+        {% for ft in form_itempedido %}
+            {{ ft }}
+        {% endfor %}
+
         <br>
         <br>
 <!--        <div class="button">-->

@@ -8,8 +8,9 @@ class EnderecoAdmin(admin.ModelAdmin):
     list_per_page = 15
     # ordering = ('created_at',)
 
+
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'rua', 'numero', 'bairro')
+    list_display = ('id', 'nome', 'endereco',)
     list_display_links = ('nome',)
     list_per_page = 15
     ordering = ('created_at',)
