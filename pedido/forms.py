@@ -10,26 +10,27 @@ from django.core.exceptions import ValidationError
 class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido
-        fields = ('cliente',)
+        # fields = ('cliente',)
+        exclude = []
 
-    # def __init__(self, *args, **kwargs):
-    #     self.helper = FormHelper()
-    #     self.helper.layout = Layout(
-    #         Row(
-    #             Column('cliente', css="form-group col-md-12 mb-0"),
-    #         ),
-    #     )
-    #     super().__init__(*args, **kwargs)
-    #
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Row(
+                Column('cliente', css="form-group col-md-12 mb-0"),
+            ),
+        )
+        super().__init__(*args, **kwargs)
+
 
 
 class ItemPedidoForm(forms.ModelForm):
     class Meta:
         model = ItemPedido
-        fields = ('pedido', 'produto', 'quantidade', 'observacao')
+        # fields = ('pedido', 'produto', 'quantidade', 'observacao')
+        exclude = ['pedido']
 
-
-itempedido_formset = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
+formset = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
 
     # def __init__(self, *args, **kwargs):
     #     self.helper = FormHelper()

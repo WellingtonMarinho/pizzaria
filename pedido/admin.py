@@ -14,4 +14,4 @@ class PedidoAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Pedido, PedidoAdmin)
-# admin.site.register(ItemPedido)
+admin.site.register(ItemPedido)

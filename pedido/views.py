@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from pedido.models import Pedido, ItemPedido
-from pedido.forms import PedidoForm, ItemPedidoForm, itempedido_formset
+from pedido.forms import PedidoForm, ItemPedidoForm, formset
 from django.urls import reverse, reverse_lazy
 from django.forms.models import inlineformset_factory
 
@@ -42,9 +42,23 @@ class ItemPedidoCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(ItemPedidoCreateView, self).get_context_data(**kwargs)
-        context['form'], context['form_itempedido'] = PedidoForm(), ItemPedidoForm()
+        context['forms'], context['formset'] = PedidoForm(), ItemPedidoForm()
+        context['page_title'] = 'Pedido'
         if self.request.POST:
-            context['form'] = PedidoForm(self.request.POST)
-            context['form_itempedido'] = ItemPedidoForm(self.request.POST)
+            context['forms'] = PedidoForm(self.request.POST)
+            context['formset'] = ItemPedidoForm(self.request.POST)
 
         return context
+
+    def form_valid(self, form):
+        context = self.get_context_data()
+        forms, formset = context['form'], context['formset']
+        if forms.is_valid and formset.is_valid():
+            self.object = form.save()
+            forms.instance = self.object
+            formset.instance = self.object
+            forms.save()
+            formset.save()
+            return redirect('core:index')
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
