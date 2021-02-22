@@ -32,7 +32,7 @@ def cria_pedido(request):
             context = {
                 'form': form,
                 'form_itempedido': form_itempedido,
-                'page_title': 'Lista de Pedidos'
+                'page_title': 'Pedidos'
             }
             return render(request, 'pedido/form_pedido.html', context)
 
@@ -53,7 +53,7 @@ def edita_pedido(request, obj_pk):
 
         form = PedidoForm(instance=pedido)
         formset = FormSet(instance=pedido)
-        context = {'form': form, 'formset': formset}
+        context = {'form': form, 'formset': formset, 'page_title': 'Lista de Pedidos'}
         return render(request, 'pedido/form_pedido.html', context)
 
     elif request.method == "POST":
@@ -68,7 +68,7 @@ def edita_pedido(request, obj_pk):
             formset.save()
             return redirect(reverse('core:index'))
         else:
-            context = {'form': form, 'formset': formset}
+            context = {'form': form, 'formset': formset, 'page_title': 'Lista de Pedidos'}
             return render(request, 'pedido/form_pedido.html', context)
 
 
