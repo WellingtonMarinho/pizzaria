@@ -32,3 +32,9 @@ class ItemPedido(models.Model):
 
     def __str__(self):
         return self.produto.nome
+
+    # def __len__(self):
+    #     return len(self.produto)
+    #
+    # def __getitem__(self, pos):
+    #     return self.produto[pos]
