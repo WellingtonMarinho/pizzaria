@@ -30,7 +30,7 @@ class ItemPedidoForm(forms.ModelForm):
         fields = ('pedido', 'produto', 'quantidade', 'observacao')
         # exclude = ['pedido']
 
-formset = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
+FormSet = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
 
     # def __init__(self, *args, **kwargs):
     #     self.helper = FormHelper()

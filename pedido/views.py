@@ -2,12 +2,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from pedido.models import Pedido, ItemPedido
-from pedido.forms import PedidoForm, ItemPedidoForm, formset
+from pedido.forms import PedidoForm, ItemPedidoForm, FormSet
 from django.urls import reverse, reverse_lazy
 from django.forms.models import inlineformset_factory
 
 
-def pedido(request):
+def cria_pedido(request):
     if request.method == "GET":
         form = PedidoForm()
         form_item_pedido_factory = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
@@ -15,6 +15,7 @@ def pedido(request):
         context = {
             'form': form,
             'formset': form_itempedido,
+            'page_title': 'Lista de Pedidos'
         }
         return render(request, 'pedido/form_pedido.html', context)
 
@@ -30,8 +31,44 @@ def pedido(request):
         else:
             context = {
                 'form': form,
-                'form_itempedido': form_itempedido
+                'form_itempedido': form_itempedido,
+                'page_title': 'Lista de Pedidos'
             }
+            return render(request, 'pedido/form_pedido.html', context)
+
+
+def lista_pedido(request):
+    if request.method == "GET":
+        pedidos = Pedido.objects.all()
+        context = {'obj_list': pedidos,
+                   'page_title': 'Lista de Pedidos'}
+        return render(request, 'list.html', context)
+
+
+def edita_pedido(request, obj_pk):
+    if request.method == "GET":
+        pedido = Pedido.objects.get(pk=obj_pk)
+        if pedido is None:
+            return redirect(reverse('pedido-list'))
+
+        form = PedidoForm(instance=pedido)
+        formset = FormSet(instance=pedido)
+        context = {'form': form, 'formset': formset}
+        return render(request, 'pedido/form_pedido.html', context)
+
+    elif request.method == "POST":
+        pedido = Pedido.objects.get(pk=obj_pk)
+        if not pedido:
+            return redirect(reverse('pedido-list'))
+        form = PedidoForm(request.POST, instance=pedido)
+        formset = FormSet(request.POST, instance=pedido)
+        if form.is_valid() and formset.is_valid():
+            objeto = form.save()
+            formset.instance = objeto
+            formset.save()
+            return redirect(reverse('core:index'))
+        else:
+            context = {'form': form, 'formset': formset}
             return render(request, 'pedido/form_pedido.html', context)
 
 
