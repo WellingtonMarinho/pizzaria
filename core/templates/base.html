@@ -1,0 +1,123 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-BR">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
+    <title>Pizzaria | {% block title %} {{ page_title }} {% endblock%}</title>
+
+    <!-- CSS puro -->
+
+    <link rel="stylesheet" href="{% static 'css/container/col-group-itens-container.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/search-button.css' %}">
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://img.icons8.com/emoji/48/000000/pizza-emoji.png" type="image/x-icon">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+  </head>
+
+  <body cz-shortcut-listen="true">
+
+    <div class="main-wrapper">
+
+      <header class="header">
+
+        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+
+          <div class="header-container container-fluid">
+
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">La Nona</a>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Entrar</a>
+                </li>
+            </ul>
+
+          </div>
+
+        </nav>
+
+      </header>
+
+      <div class="content">
+
+        <div class="container-fluid">
+
+          <div class="row">
+
+            <div class="col-md-12 col-lg-4 col-xl-3">
+              <div class="card">
+                <div class="container">
+
+                  {% include 'parcials/_menu_sidebar.html' %}
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-8 col-lg-9">
+              <br>
+              <div class="row">
+                {% block search %}
+                {% endblock%}
+                <br>
+                <br>
+                {% block content %}
+                {% endblock %}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {% include 'parcials/_main_footer.html' %}
+
+    </div>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>

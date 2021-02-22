@@ -10,38 +10,34 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('cliente', '0001_initial'),
+        ('produto', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Categoria',
+            name='Pedido',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('is_active', models.BooleanField(default=True, verbose_name='Cliente ativo')),
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
                 ('modified_at', models.DateTimeField(auto_now=True, verbose_name='Modificado em')),
                 ('uuid', models.UUIDField(default=uuid.uuid4, editable=False, unique=True)),
-                ('categoria', models.CharField(max_length=255, verbose_name='Categoria')),
-                ('tamanho', models.CharField(choices=[('P', 'Pequeno'), ('M', 'Médio'), ('G', 'Grande')], max_length=10)),
+                ('cliente', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='cliente.cliente')),
+                ('endereco', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='cliente.endereco')),
+                ('produto', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='produto.produto')),
             ],
             options={
                 'abstract': False,
             },
         ),
         migrations.CreateModel(
-            name='Produto',
+            name='ItemPedido',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('is_active', models.BooleanField(default=True, verbose_name='Cliente ativo')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Criado em')),
-                ('modified_at', models.DateTimeField(auto_now=True, verbose_name='Modificado em')),
-                ('uuid', models.UUIDField(default=uuid.uuid4, editable=False, unique=True)),
-                ('nome', models.CharField(max_length=255, verbose_name='Nome')),
-                ('preco', models.DecimalField(decimal_places=2, max_digits=8, verbose_name='Preço')),
-                ('categoria', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='produto.categoria')),
+                ('quantidade', models.PositiveIntegerField()),
+                ('pedido', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pedido.pedido')),
+                ('produto', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='produto.produto')),
             ],
-            options={
-                'abstract': False,
-            },
         ),
     ]

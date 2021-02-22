@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core',
     'produto',
     'cliente',
+    'pedido',
     'crispy_forms',
 ]
 
@@ -59,7 +60,8 @@ ROOT_URLCONF = 'pizzaria.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
