@@ -2,16 +2,16 @@
 
 {% load crispy_forms_tags %}
 {% load static %}
-{% block title %}{{ title }} {% endblock %}
+{% block title %}{{ page_title }} {% endblock %}
 
 {% block content %}
     <form method="post" action="">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
 
-        {{ form_itempedido.management_form }}
+        {{ formset.management_form }}
 
-        {% for ft in form_itempedido %}
+        {% for ft in formset %}
         <hr>
             {{ ft }}
         {% endfor %}
