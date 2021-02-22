@@ -5,6 +5,7 @@ from pedido.forms import PedidoForm, ItemPedidoForm
 from django.urls import reverse, reverse_lazy
 from django.forms.models import inlineformset_factory
 
+
 def pedido(request):
     if request.method == "GET":
         form = PedidoForm()
@@ -33,8 +34,16 @@ def pedido(request):
             return render(request, 'pedido/form_pedido.html', context)
 
 
-# class PedidoCreateView(CreateView):
-    # model = ItemPedido
-    # form_class = ItemPedidoForm
-    # template_name = 'forms.html'
-    # success_url = reverse_lazy('index')
+class ItemPedidoCreateView(CreateView):
+    model = ItemPedido
+    form_class = ItemPedidoForm
+    template_name = 'pedido/form_pedido.html'
+    success_url = reverse_lazy('index')
+    object = None
+
+    def get(self, request, *args, **kwargs):
+        form = PedidoForm()
+        item_pedido_factory = inlineformset_factory(Pedido, ItemPedido,form=ItemPedidoForm, extra=2)
+        form_item_pedido = item_pedido_factory()
+        return self.render_to_response(
+            self.get_context_data(form=form, form_itempedido=form_item_pedido))

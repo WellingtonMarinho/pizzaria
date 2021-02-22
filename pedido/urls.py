@@ -1,9 +1,9 @@
 from django.urls import path
-# from .views import PedidoCreateView, pedido
-from .views import pedido
+from .views import ItemPedidoCreateView
+# from .views import pedido
 
 
 urlpatterns = [
-    # path('pedido/create/', PedidoCreateView.as_view(), name='pedido-create'),
-    path('pedido/create/', pedido, name='pedido-create'),
+    path('pedido/create/', ItemPedidoCreateView.as_view(), name='pedido-create'),
+    # path('pedido/create/', pedido, name='pedido-create'),
 ]
