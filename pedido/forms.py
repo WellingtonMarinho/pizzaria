@@ -10,8 +10,8 @@ from django.core.exceptions import ValidationError
 class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido
-        # fields = ('cliente',)
-        exclude = []
+        fields = ('cliente',)
+        # exclude = []
 
     def __init__(self, *args, **kwargs):
         self.helper = FormHelper()
@@ -27,8 +27,8 @@ class PedidoForm(forms.ModelForm):
 class ItemPedidoForm(forms.ModelForm):
     class Meta:
         model = ItemPedido
-        # fields = ('pedido', 'produto', 'quantidade', 'observacao')
-        exclude = ['pedido']
+        fields = ('pedido', 'produto', 'quantidade', 'observacao')
+        # exclude = ['pedido']
 
 formset = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
 
