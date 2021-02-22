@@ -36,8 +36,15 @@ from django.forms.models import inlineformset_factory
 
 
 class ItemPedidoCreateView(CreateView):
-    model = Pedido
     form_class = PedidoForm
     template_name = 'pedido/form_pedido.html'
-    success_url = reverse_lazy('index')
-    object = None
+    # success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super(ItemPedidoCreateView, self).get_context_data(**kwargs)
+        context['form'], context['form_itempedido'] = PedidoForm(), ItemPedidoForm()
+        if self.request.POST:
+            context['form'] = PedidoForm(self.request.POST)
+            context['form_itempedido'] = ItemPedidoForm(self.request.POST)
+
+        return context
