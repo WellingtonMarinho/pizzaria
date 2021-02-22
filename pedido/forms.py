@@ -1,4 +1,5 @@
 from django import forms
+from django.forms.models import inlineformset_factory
 from django.forms import BaseFormSet
 from pedido.models import Pedido, ItemPedido
 from crispy_forms.helper import FormHelper
@@ -21,10 +22,14 @@ class PedidoForm(forms.ModelForm):
     #     super().__init__(*args, **kwargs)
     #
 
+
 class ItemPedidoForm(forms.ModelForm):
     class Meta:
         model = ItemPedido
         fields = ('pedido', 'produto', 'quantidade', 'observacao')
+
+
+itempedido_formset = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
 
     # def __init__(self, *args, **kwargs):
     #     self.helper = FormHelper()
