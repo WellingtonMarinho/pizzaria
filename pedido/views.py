@@ -42,7 +42,8 @@ def lista_pedido(request):
         pedidos = Pedido.objects.all()
         context = {'obj_list': pedidos,
                    'page_title': 'Lista de Pedidos'}
-        return render(request, 'list.html', context)
+        print(context['obj_list'])
+        return render(request, 'pedido/list_pedido.html', context)
 
 
 def edita_pedido(request, obj_pk):
