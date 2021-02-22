@@ -53,6 +53,14 @@ class ItemPedidoCreateView(CreateView):
     def form_valid(self, form):
         context = self.get_context_data()
         forms, formset = context['form'], context['formset']
+        print(form)
+        print()
+        print(dir(form))
+        print()
+        print(forms, "======FORMS=======")
+        print()
+        print(formset, "======FORMSET=======")
+
         if forms.is_valid and formset.is_valid():
             self.object = form.save()
             forms.instance = self.object
