@@ -31,7 +31,7 @@ def cria_pedido(request):
         else:
             context = {
                 'form': form,
-                'form_itempedido': form_itempedido,
+                'formset': form_itempedido,
                 'page_title': 'Pedidos'
             }
             return render(request, 'pedido/form_pedido.html', context)

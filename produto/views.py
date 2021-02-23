@@ -33,12 +33,14 @@ class ProdutoDetailView(DetailView):
     pk_url_kwarg = 'obj_pk'
 
 
+
 class ProdutoUpdateView(UpdateView):
     model = Produto
     template_name = 'forms.html'
     form_class = ProdutoForm
     success_url = reverse_lazy('produto-list')
     pk_url_kwarg = 'obj_pk'
+
 
 
 class ProdutoDeleteView(DeleteView):

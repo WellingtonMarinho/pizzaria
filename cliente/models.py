@@ -19,6 +19,7 @@ class Cliente(BaseModel):
     nome = models.CharField(max_length=155, null=False, blank=False)
     cpf = models.CharField(max_length=155, null=True, blank=True)
     endereco = models.ForeignKey(Endereco, on_delete=models.DO_NOTHING)
+    #Telefone
 
     @property
     def _endereco(self):

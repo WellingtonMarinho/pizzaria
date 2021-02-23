@@ -25,11 +25,18 @@ class ProdutoForm(forms.ModelForm):
 
 
     def clean_nome(self):
-        nome = self.cleaned_data['nome']
+        nome = self.cleaned_data.get('nome')
         if nome.replace(' ', '').isalpha():
             return nome.title()
         else:
             raise ValidationError('Campo "nome" deve conter apenas letras.')
+
+    def clean_preco(self):
+        preco = self.cleaned_data.get('preco')
+        if preco <= 0:
+            raise ValidationError('Preço')
+        else:
+            return preco
 
 
 class CategoriaForm(forms.ModelForm):
