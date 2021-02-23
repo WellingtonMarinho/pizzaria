@@ -30,6 +30,12 @@ class ItemPedidoForm(forms.ModelForm):
         fields = ('pedido', 'produto', 'quantidade', 'observacao')
         # exclude = ['pedido']
 
+    def clean_quantidade(self):
+        quantidade = self.cleaned_data['quantidade']
+        if quantidade <= 0:
+            raise ValidationError('O campo "quantidade" precisa ser um número maior que zero.')
+
+
 FormSet = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
 
     # def __init__(self, *args, **kwargs):
