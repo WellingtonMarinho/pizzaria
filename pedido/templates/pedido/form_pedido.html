@@ -9,11 +9,11 @@
         {% csrf_token %}
         {{ form|crispy }}
 
-        {{ formset.management_form }}
+        {{ formset.management_form|crispy }}
 
         {% for ft in formset %}
         <hr>
-            {{ ft }}
+            {{ ft|crispy }}
         {% endfor %}
 
 
