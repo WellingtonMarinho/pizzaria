@@ -23,7 +23,6 @@ class ProdutoForm(forms.ModelForm):
         )
         super().__init__(*args, **kwargs)
 
-
     def clean_nome(self):
         nome = self.cleaned_data.get('nome')
         if nome.replace(' ', '').isalpha():
@@ -34,7 +33,7 @@ class ProdutoForm(forms.ModelForm):
     def clean_preco(self):
         preco = self.cleaned_data.get('preco')
         if preco <= 0:
-            raise ValidationError('Preço')
+            raise ValidationError('Preço ')
         else:
             return preco
 
@@ -55,3 +54,4 @@ class CategoriaForm(forms.ModelForm):
             Submit('submit', 'Salvar')
         )
         super().__init__(*args, **kwargs)
+
