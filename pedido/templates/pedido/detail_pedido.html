@@ -1,7 +1,26 @@
 {% extends 'list.html' %}
 {% block content %}
-    
-    {% for obj in pedido%}
-        {{ obj }}
-    {% endfor %}
+    <h1>Lista de Pedidos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N° Pedido</th>
+                <th>Nome</th>
+                <th>Endereco</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>        
+            
+            <tr>
+               <td>{{ obj }}</td>
+
+
+
+            </tr>
+        </tbody>
+    </table>
+
+
 {% endblock %}
