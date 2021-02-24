@@ -44,12 +44,12 @@ class ClienteUpdateView(UpdateView):
     model = Cliente
     template_name = 'forms.html'
     form_class = ClienteForm
-    success_url = reverse_lazy('clientes')
     pk_url_kwarg = 'cliente_pk'
+    success_url = reverse_lazy('clientes')
 
 
 class ClienteDeleteView(DeleteView):
     model = Cliente
     pk_url_kwarg = 'cliente_pk'
-    success_url = reverse_lazy('clientes')
     template_name = 'delete.html'
+    success_url = reverse_lazy('clientes')

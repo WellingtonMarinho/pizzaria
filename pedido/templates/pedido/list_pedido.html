@@ -13,7 +13,9 @@
                     </div>
                     <br>
 
-                    <h4>{{ obj }}</h4>
+                    <a href="{% url 'detail-pedido' obj_pk:obj.pk %}">
+                        <h4>{{ obj }}</h4>
+                    </a>
                 </div>
             </div>
             {% endfor %}
