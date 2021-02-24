@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import CreateView
 from pedido.models import Pedido, ItemPedido
 from pedido.forms import PedidoForm, ItemPedidoForm, FormSet
@@ -71,6 +71,17 @@ def edita_pedido(request, obj_pk):
         else:
             context = {'form': form, 'formset': formset, 'page_title': 'Lista de Pedidos'}
             return render(request, 'pedido/form_pedido.html', context)
+
+
+def detalha_pedido(request, obj_pk):
+    if request.method == "GET":
+        pedido = Pedido.objects.get(pk=obj)
+        item_pedido = pedido.itempedido_set.all()
+        #pedido = ItemPedido.objects.filter(pedido.pk=obj_pk)
+        # pedido = get_object_or_404(Pedido, pk=obj_pk)
+        context = {'obj': item_pedido}
+        return render(request, 'pedido/detail_pedido.html', context)
+
 
 
 # class ItemPedidoCreateView(CreateView):

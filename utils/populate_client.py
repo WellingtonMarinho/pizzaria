@@ -46,5 +46,7 @@ def criando_enderecos(quantidade):
         else:
             cont += 1
     print(f'A requisição falhou {cont} vezes.')
-# criando_enderecos(40)
-criando_cliente(50)
+
+
+# criando_enderecos(30)
+criando_cliente(30)

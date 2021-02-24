@@ -13,6 +13,10 @@ class Pedido(BaseModel):
     def endereco(self):
         return f'Rua: {self.cliente.endereco.rua} {self.cliente.endereco.numero} - {self.cliente.endereco.bairro}'
 
+    @property 
+    def nome(self):
+        return self.cliente.nome
+
     def __str__(self):
         return f'Pedido N°: {self.id} - {self.cliente.nome} -- {self.endereco}'
 
