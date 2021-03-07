@@ -9,10 +9,10 @@ class CategoriaAdmin(admin.ModelAdmin):
 
 
 class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'categoria', 'preco')
-    list_display_links = ('nome', 'categoria', 'preco')
+    list_display = ('id', 'sabor', 'categoria', 'preco')
+    list_display_links = ('sabor', 'categoria', 'preco')
     list_filter = ('categoria', )
-    search_fields = ('nome', 'categoria')
+    search_fields = ('sabor', 'categoria')
     list_per_page = 10
     ordering = ('created_at',)
 
