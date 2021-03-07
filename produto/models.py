@@ -12,7 +12,7 @@ class Categoria(BaseModel):
 
 
 class Sabor(BaseModel):
-    nome = models.CharField(max_length=255, null=False, blank=False, verbose_name='Nome')
+    sabor = models.CharField(max_length=255, null=False, blank=False, verbose_name='Nome')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     preco = models.DecimalField(decimal_places=2, max_digits=8, verbose_name='Preço')
 
