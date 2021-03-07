@@ -8,7 +8,7 @@ from .models import Sabor, Categoria
 class ProdutoForm(forms.ModelForm):
     class Meta:
         model = Sabor
-        fields = '__all__'
+        fields = ['sabor', 'categoria', 'preco']
 
     def __init__(self, *args, **kwargs):
         self.helper = FormHelper()
@@ -41,17 +41,22 @@ class ProdutoForm(forms.ModelForm):
 class CategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria
-        fields = '__all__'
+        fields = ['categoria', 'descricao']
 
     def __init__(self, *args, **kwargs):
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Row(
                 Column('categoria', css="form-group col-md-4 mb-0"),
-                Column('tamanho', css="form-group col-md-4 mb-0"),
+                Column('descricao', css="form-group col-md-4 mb-0"),
                 css_class='form-row'
             ),
             Submit('submit', 'Salvar')
         )
         super().__init__(*args, **kwargs)
 
+    def clean_categoria(self):
+        pass
+
+    def clean_descricao(self):
+        pass

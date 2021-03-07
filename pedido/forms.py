@@ -50,4 +50,8 @@ class ItemPedidoForm(forms.ModelForm):
         else:
             return quantidade
 
+    def clean_observacao(self):
+        pass
+
+
 FormSet = inlineformset_factory(Pedido, ItemPedido, form=ItemPedidoForm, extra=1)
