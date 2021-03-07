@@ -4,13 +4,8 @@ from django.utils.text import slugify
 
 
 class Categoria(BaseModel):
-    _TAMANHO = [
-        ('P', 'Pequeno'),
-        ('M', 'Médio'),
-        ('G', 'Grande')
-    ]
     categoria = models.CharField(max_length=255, blank=False, null=False, verbose_name='Categoria')
-    tamanho = models.CharField(max_length=10, choices=_TAMANHO)
+    descricao = models.CharField(max_length=100, )
 
     def __str__(self):
         return str(self.categoria)
