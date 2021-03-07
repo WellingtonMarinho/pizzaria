@@ -3,7 +3,7 @@
 from django.db import models
 from cliente.models import Cliente
 from core.mixins import BaseModel
-from produto.models import Produto
+from produto.models import Sabor
 
 
 class Pedido(BaseModel):
@@ -26,7 +26,7 @@ class Pedido(BaseModel):
 
 class ItemPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    produto = models.ForeignKey(Produto, on_delete=models.DO_NOTHING)
+    produto = models.ForeignKey(Sabor, on_delete=models.DO_NOTHING)
     quantidade = models.PositiveIntegerField(default=1)
     observacao = models.CharField(max_length=30, help_text='Observação', null=True, blank=True)
 

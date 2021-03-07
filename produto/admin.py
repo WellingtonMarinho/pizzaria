@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Produto, Categoria
+from .models import Sabor, Categoria
 
 
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('id', 'categoria', 'tamanho')
+    list_display = ('id', 'categoria', )
     list_display_links = ('categoria',)
     ordering = ('created_at',)
 
@@ -19,4 +19,4 @@ class ProdutoAdmin(admin.ModelAdmin):
     # list_editable = ('name', 'type', 'price', 'is_active', 'uuid',)
 
 admin.site.register(Categoria, CategoriaAdmin)
-admin.site.register(Produto, ProdutoAdmin)
+admin.site.register(Sabor, ProdutoAdmin)

@@ -1,17 +1,17 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView, RedirectView
-from .models import Produto, Categoria
+from .models import Sabor, Categoria
 from .forms import ProdutoForm, CategoriaForm
 
 
 class ProdutoListView(ListView):
-    model = Produto
+    model = Sabor
     template_name = 'list.html'
     paginate_by = 10
     context_object_name = 'obj_list'
 
     def get_queryset(self, **kwargs):
-        queryset = Produto.objects.all().order_by('created_at')
+        queryset = Sabor.objects.all().order_by('created_at')
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -21,21 +21,21 @@ class ProdutoListView(ListView):
 
 
 class ProdutoCreateView(CreateView):
-    model = Produto
+    model = Sabor
     form_class = ProdutoForm
     template_name = 'forms.html'
     success_url = reverse_lazy('produto-list') # Define que url será apontada após o save()
 
 
 class ProdutoDetailView(DetailView):
-    model = Produto
+    model = Sabor
     template_name = 'detail.html'
     pk_url_kwarg = 'obj_pk'
 
 
 
 class ProdutoUpdateView(UpdateView):
-    model = Produto
+    model = Sabor
     template_name = 'forms.html'
     form_class = ProdutoForm
     success_url = reverse_lazy('produto-list')
@@ -44,7 +44,7 @@ class ProdutoUpdateView(UpdateView):
 
 
 class ProdutoDeleteView(DeleteView):
-    model = Produto
+    model = Sabor
     pk_url_kwarg = 'obj_pk'
     success_url = reverse_lazy('produto-list')
     template_name = 'delete.html'

@@ -2,12 +2,12 @@ from django import forms
 from django.core.exceptions import ValidationError
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
-from .models import Produto, Categoria
+from .models import Sabor, Categoria
 
 
 class ProdutoForm(forms.ModelForm):
     class Meta:
-        model = Produto
+        model = Sabor
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
