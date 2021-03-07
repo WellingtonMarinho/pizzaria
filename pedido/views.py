@@ -75,7 +75,7 @@ def edita_pedido(request, obj_pk):
 
 def detalha_pedido(request, obj_pk):
     if request.method == "GET":
-        pedido = Pedido.objects.get(pk=obj)
+        pedido = Pedido.objects.get(pk=obj_pk)
         item_pedido = pedido.itempedido_set.all()
         #pedido = ItemPedido.objects.filter(pedido.pk=obj_pk)
         # pedido = get_object_or_404(Pedido, pk=obj_pk)
