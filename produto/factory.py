@@ -20,7 +20,7 @@ class CategoriaFactory(DjangoModelFactory):
         model = Categoria
 
 
-class ProdutoFactory(DjangoModelFactory):
+class SaborFactory(DjangoModelFactory):
     nome = factory.Iterator(_SABOR)
     categoria = factory.SubFactory(CategoriaFactory)
     preco = randint(1, 150)
