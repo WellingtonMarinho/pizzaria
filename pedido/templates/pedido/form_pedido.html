@@ -5,15 +5,17 @@
 {% block title %}{{ page_title }} {% endblock %}
 
 {% block content %}
-    <form method="post" action="">
+    <form method="post">
         {% csrf_token %}
-        {{ form|crispy }}
+        {{ form.as_p }}
 
-        {{ formset.management_form|crispy }}
+        {{ inlineformulario.management_form | crispy}}
 
-        {% for ft in formset %}
-        <hr>
-            {{ ft|crispy }}
+        {% for ft in inlineformulario %}
+            <div class="dynamic-form">
+                <hr>
+                {{ ft }}
+            </div>
         {% endfor %}
 
 
@@ -22,4 +24,18 @@
             <a class='btn btn-danger' href="{% url 'core:index' %}">Cancelar</a>
         </div>
     </form>
+{% endblock %}
+
+
+{% block js %}
+    <script type="text/javascrit">
+        $(function() {
+            $('.dynamic-form').formset({
+                prefix: '{{ inlineformulario.prefix }}',
+                addText: 'Adcionar novo item',
+                deleteText: 'Remover este item',
+            });
+        })
+    </script>
+
 {% endblock %}

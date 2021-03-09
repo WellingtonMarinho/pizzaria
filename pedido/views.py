@@ -7,6 +7,15 @@ from django.urls import reverse, reverse_lazy
 from django.forms.models import inlineformset_factory
 
 
+def lista_pedido(request):
+    if request.method == "GET":
+        pedidos = Pedido.objects.all()
+        context = {'obj_list': pedidos,
+                   'page_title': 'Lista de Pedidos'}
+        print(dir(pedidos ))
+        return render(request, 'pedido/list_pedido.html', context)
+
+
 def cria_pedido(request):
     if request.method == "GET":
         form = PedidoForm()
@@ -14,7 +23,7 @@ def cria_pedido(request):
         form_itempedido = form_item_pedido_factory()
         context = {
             'form': form,
-            'formset': form_itempedido,
+            'inlineformulario': form_itempedido,
             'page_title': 'Lista de Pedidos'
         }
         return render(request, 'pedido/form_pedido.html', context)
@@ -31,30 +40,21 @@ def cria_pedido(request):
         else:
             context = {
                 'form': form,
-                'formset': form_itempedido,
+                'inlineformulario': form_itempedido,
                 'page_title': 'Pedidos'
             }
             return render(request, 'pedido/form_pedido.html', context)
 
 
-def lista_pedido(request):
-    if request.method == "GET":
-        pedidos = Pedido.objects.all()
-        context = {'obj_list': pedidos,
-                   'page_title': 'Lista de Pedidos'}
-        print(context['obj_list'])
-        return render(request, 'pedido/list_pedido.html', context)
-
-
 def edita_pedido(request, obj_pk):
     if request.method == "GET":
         pedido = Pedido.objects.get(pk=obj_pk)
-        if pedido is None:
+        if not pedido:
             return redirect(reverse('pedido-list'))
 
         form = PedidoForm(instance=pedido)
         formset = FormSet(instance=pedido)
-        context = {'form': form, 'formset': formset, 'page_title': 'Lista de Pedidos'}
+        context = {'form': form, 'inlineformulario': formset, 'page_title': 'Lista de Pedidos'}
         return render(request, 'pedido/form_pedido.html', context)
 
     elif request.method == "POST":
@@ -69,7 +69,7 @@ def edita_pedido(request, obj_pk):
             formset.save()
             return redirect(reverse('core:index'))
         else:
-            context = {'form': form, 'formset': formset, 'page_title': 'Lista de Pedidos'}
+            context = {'form': form, 'inlineformulario': formset, 'page_title': 'Lista de Pedidos'}
             return render(request, 'pedido/form_pedido.html', context)
 
 

@@ -35,7 +35,7 @@ class ItemPedido(models.Model):
         return self.produto.preco
 
     def __str__(self):
-        return self.produto.nome
+        return self.produto.sabor
 
     # def __len__(self):
     #     return len(self.produto)

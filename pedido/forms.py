@@ -13,14 +13,14 @@ class PedidoForm(forms.ModelForm):
         fields = ('cliente',)
         # exclude = []
 
-    def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Row(
-                Column('cliente', css="form-group col-md-12 mb-0"),
-            ),
-        )
-        super().__init__(*args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #     self.helper = FormHelper()
+    #     self.helper.layout = Layout(
+    #         Row(
+    #             Column('cliente', css="form-group col-md-12 mb-0"),
+    #         ),
+    #     )
+    #     super().__init__(*args, **kwargs)
 
 
 class ItemPedidoForm(forms.ModelForm):
@@ -29,19 +29,19 @@ class ItemPedidoForm(forms.ModelForm):
         fields = ('pedido', 'produto', 'quantidade', 'observacao')
         # exclude = ['pedido']
 
-    def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            Row(
-                Column('pedido', css="form-group col-md-3 mb-0"),
-                Column('produto', css="form-group col-md-3 mb-0"),
-                Column('quantidade', css="form-group col-md-3 mb-0"),
-                Column('observacao', css="form-group col-md-3 mb-0"),
-                css_class='form-row'
-        ),
-            Submit('submit', 'Salvar')
-        )
-        super().__init__(*args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #     self.helper = FormHelper()
+    #     self.helper.layout = Layout(
+    #         Row(
+    #             Column('pedido', css="form-group col-md-3 mb-0"),
+    #             Column('produto', css="form-group col-md-3 mb-0"),
+    #             Column('quantidade', css="form-group col-md-3 mb-0"),
+    #             Column('observacao', css="form-group col-md-3 mb-0"),
+    #             css_class='form-row'
+    #     ),
+    #         Submit('submit', 'Salvar')
+    #     )
+    #     super().__init__(*args, **kwargs)
 
     def clean_quantidade(self):
         quantidade = self.cleaned_data['quantidade']
