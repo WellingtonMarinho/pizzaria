@@ -26,7 +26,7 @@ def cria_pedido(request):
             'inlineformulario': form_itempedido,
             'page_title': 'Lista de Pedidos'
         }
-        return render(request, 'pedido/form_pedido.html', context)
+        return render(request, 'pedido/form_pedidos.html', context)
 
     elif request.method == "POST":
         form = PedidoForm(request.POST)
@@ -43,7 +43,7 @@ def cria_pedido(request):
                 'inlineformulario': form_itempedido,
                 'page_title': 'Pedidos'
             }
-            return render(request, 'pedido/form_pedido.html', context)
+            return render(request, 'pedido/form_pedidos.html', context)
 
 
 def edita_pedido(request, obj_pk):
