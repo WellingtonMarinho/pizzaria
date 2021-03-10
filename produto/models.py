@@ -25,4 +25,4 @@ class Sabor(BaseModel):
     #     super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.nome
+        return self.sabor
