@@ -1,12 +1,37 @@
-{% extends 'base.html' %}
+{% extends 'index.html' %}
 {% load static %}
 
 {% block title %}{{ page_title }} {% endblock %}
 
 {% block content %}
-    {% for cliente in clientes %}
-        {{ cliente.nome }}
+    
+    <table class="margin-clients-list">
+        <thead>
+            <tr class="margin-clients-list">
+                <th scope="col">Cliente</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Endereço</th>
+            </tr>
+        </thead>
         <br>
-    {% endfor %}
+        <tbody>
+    
+            {% for cliente in obj_list %}
+    
+            <tr class="margin-clients-list">
+                <td scope="row">{{ cliente.nome }}</td>
+                <td scope="row">{{ cliente.telefone }}</td>
+                <td scope="row">{{ cliente.enderecos }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+    <br>
+
+    
+
+<br>
 
 {% endblock%}
