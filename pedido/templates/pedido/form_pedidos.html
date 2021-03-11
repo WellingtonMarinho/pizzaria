@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Formulário de Cliente</h1>
+<div class="top-buffer">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {{ inlineformulario.management_form }}
+
+        {% for ft in inlineformulario %}
+        <div class="inlineform">
+            <hr>
+            {{ ft }}
+        </div>
+        {% endfor %}
+
+        <div class="row">
+            <button class='btn btn-primary' type="submit">Salvar</button>
+            <a class="btn btn-danger" href='#'>Cancelar</a>
+        </div>
+
+    </form>
+</div>
+
+{% endblock  %}
+
+
+{% block js %}
+<script type="text/javascript">
+    $(function() {
+        $('.inlineform').formset({
+            prefix: '{{ inlineformulario.prefix }}',
+            addText: 'Adicionar novo Telefone',
+            deleteText: 'Remover este telefone',
+        });
+    })
+</script>
+{% endblock %}

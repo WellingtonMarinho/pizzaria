@@ -22,7 +22,7 @@ class Cliente(BaseModel):
     telefone = models.CharField(max_length=13, blank=False, null=True)
 
     @property
-    def _endereco(self):
+    def enderecos(self):
         return f'Rua: {self.endereco.rua}, N° {self.endereco.numero} - {self.endereco.bairro}'
 
     def __str__(self):
