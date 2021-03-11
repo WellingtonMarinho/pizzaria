@@ -13,7 +13,7 @@ class Command(BaseCommand):
         # ClienteFactory.create_batch(10)
         # PedidoFactory.create_batch(150)
         # Todos são ativados a partir do ItemPedidoFactory
-        ItemPedidoFactory.create_batch(10)
+        ItemPedidoFactory.create_batch(2000)
 
 
     def handle(self, *args, **kwargs):
