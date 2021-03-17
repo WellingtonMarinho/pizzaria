@@ -3,7 +3,7 @@ from core.mixins import BaseModel
 
 
 class Endereco(models.Model):
-    cep = models.CharField(max_length=8, null=True, blank=True)
+    cep = models.CharField(max_length=12, null=True, blank=True)
     rua = models.CharField(max_length=255, null=True, blank=True)
     numero = models.CharField(max_length=6, null=False, blank=False, default='Sem número')
     complemento = models.CharField(max_length=255, null=True, blank=True)
@@ -19,7 +19,7 @@ class Cliente(BaseModel):
     nome = models.CharField(max_length=155, null=False, blank=False)
     cpf = models.CharField(max_length=155, null=True, blank=True)
     endereco = models.ForeignKey(Endereco, on_delete=models.DO_NOTHING)
-    telefone = models.CharField(max_length=13, blank=False, null=True)
+    telefone = models.CharField(max_length=20, blank=False, null=True)
 
     @property
     def enderecos(self):

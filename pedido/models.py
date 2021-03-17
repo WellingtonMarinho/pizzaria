@@ -1,4 +1,6 @@
 # Tutorial to based: https://felipefrizzo.github.io/post/form-inline/
+# Tutorial para analisar: https://www.treinaweb.com.br/blog/relacionamento-1-1-1-n-e-n-n-com-django/
+
 
 from django.db import models
 from cliente.models import Cliente
