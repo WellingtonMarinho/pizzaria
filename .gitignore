@@ -1,6 +1,7 @@
 .pizza
 .pizzaria
 .idea
+.env
 .bashrc
 *.sqlite3
 *pyc
