@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  web:
+  pizzaria_app:
     build: .
     command: python manage.py runserver 0.0.0.0:8008
     volumes:
@@ -13,6 +13,7 @@ services:
   db:
     image: postgres:13
     environment:
+      - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:
